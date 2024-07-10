@@ -4,6 +4,7 @@
 
 \definecolor{darkMagenta}{HTML}{ff9900}
 \definecolor{violet}{HTML}{ff9900}
+\definecolor{teal}{HTML}{1260cc}
 
 \usepackage{tabularx}
 \usepackage{xcolor,colortbl}
@@ -50,13 +51,9 @@
 {\centering
 This is joint work with \textcolor{magenta}{David Spivak}. 
 
-\vspace{1em}
+\[ \includegraphics[scale=0.35]{pics/hqdefault.jpg} \]
 
-\pnote{David's picture}
-
-\vspace{1em}
-
-Our paper is available in \textcolor{magenta}{arXiv: 2407.01849}
+Our paper is available in \textcolor{magenta}{arXiv: 2407.01849} (July 2024) 
 
 }
 
@@ -211,6 +208,24 @@ A person can either have \textcolor{magenta}{a dollar} or \textcolor{magenta}{an
     {\bf Monoidal categories:} LDCs in which $\ox = \oa; \top = \bot$ 
 
     \vspace{1em}
+\end{frame}
+
+\begin{frame}{Symmetry and $\ox$-symmetry}
+
+A \tcolor{symmetric LDC} is an LDC in which $\ox$ and the $\oa$ products are symmetric and the diagram commutes.
+\[ \begin{tikzcd}[ampersand replacement=\&]
+(A \oa B) \ox C \ar[d, "\tcolor{\partial^R}"'] \ar[r, "\sigma_\ox" ]
+	\& C \ox (A \oa B) \ar[r, "\sigma_\oa"]  
+	\& C \ox (B \oa A) \ar[d, "\tcolor{\partial^L}"] \\ 
+A \oa (B \ox C) 
+	\& A \oa (C \ox B)  \ar[l, "\sigma_\oa"]
+	\& A \oa (B \ox C) \ar[l, "\sigma_\ox"] 
+\end{tikzcd}\]
+
+\vspace{1em}
+
+A \tcolor{$\ox$-symmetric LDC} is an LDC in which only the $\ox$ product is symmetric.
+
 \end{frame}
 
 \begin{frame}{Specturm of LDCs}
@@ -408,7 +423,7 @@ The \tcolor{indep}\footnote{Also referred to as the mixor} must be natural in $A
 
 \begin{frame}{Compact LDCs}
 
-A {\bf compact LDC} is an LDC in which every indep is an isomorphism. 
+A {\bf compact LDC} is an LDC in which every indep map is an isomorphism. 
 \[ \indep_{A,B}: A \ox B \to^{\simeq}  A \oa B \]
 
 \vspace{1.5em}
@@ -452,24 +467,6 @@ monoidal categories $(\X, \ox, \top)$ and $(\X, \oa, \bot)$.
     
 \end{frame}
 
-\begin{frame}{Symmetry and $\ox$-symmetry}
-
-A \tcolor{symmetric LDC} is an LDC in which $\ox$ and the $\oa$ products are symmetric and the diagram commutes.
-\[ \begin{tikzcd}[ampersand replacement=\&]
-(A \oa B) \ox C \ar[d, "\tcolor{\partial^R}"'] \ar[r, "\sigma_\ox" ]
-	\& C \ox (A \oa B) \ar[r, "\sigma_\oa"]  
-	\& C \ox (B \oa A) \ar[d, "\tcolor{\partial^L}"] \\ 
-A \oa (B \ox C) 
-	\& A \oa (C \ox B)  \ar[l, "\sigma_\oa"]
-	\& A \oa (B \ox C) \ar[l, "\sigma_\ox"] 
-\end{tikzcd}\]
-
-\vspace{1em}
-
-A \tcolor{$\ox$-symmetric LDC} is an LDC in which the $\ox$ product is symmetric and the $\oa$ product is non-symmetric.
-
-\end{frame}
-
 \begin{frame}{Typical examples of LDCs}
 
 \vspace{2em}
@@ -504,7 +501,7 @@ Ehrhard’s finiteness spaces, Girard's coherence spaces, Chu spaces.
 
 \vspace{1em}
 
-\textcolor{purple}{Poly} the category of polynomial functors and transformations as an example of LDCs.
+\textcolor{purple}{Poly} the category of polynomial functors and transformations as an example of isomix LDCs.
 
 \vspace{1em}
 
@@ -535,19 +532,19 @@ A {\bf polynomial functor} is a functor that is isomorphic to a coproduct of rep
 
  \[ p \cong \sum_{P : p(1)} y^{p[P]} : {\sf Set \to Set} \] 
 
-\vspace{1em}
+\vspace{0.5em}
 
 A schematic of a polynomial functor map, $\varphi: (y^3 + y^2) \to (y + y^2)$.
-\[ \includegraphics[scale=0.08]{pics/corolla-map.jpeg} \] 
+\[ \includegraphics[scale=0.09]{pics/corolla-map.jpeg} \] 
 \end{frame}
 
 \begin{frame}{ Recap: Tensor product in Poly}
 
 The tensor product $\ox$ is given by the Day convolution of Cartesian product $\times$ in $\Set$.  
 
-\[ p \ox q = \sum_{P: p(1)} y^{p[P]} \ox \sum_{Q: q(1)} y^{q[Q]} := \sum_{(P,Q): p(1) \times q(1)} y^{p[P] \times q[Q]} \] 
+\[ p \ox q = \sum_{P: p(1)} y^{p[P]} \ox \sum_{Q: q(1)} y^{q[Q]} := \sum_{\tcolor{(P,Q): p(1) \times q(1)}} y^{\tcolor{p[P] \times q[Q]}} \] 
 
-Tensor product $\ox$ is symmetric.
+Tensor product is symmetric.
 
 \end{frame}
 
@@ -565,19 +562,17 @@ Read $p \tri q$ as \textcolor{purple}{q then p}.
 \vspace{1em}
 
 The tri product $\tri$ is non-symmetric.
-
-\pnote{Add a picture here of composed corolla}
-
+\[ \includegraphics[scale=0.08]{pics/tri.jpeg} \]
 \end{frame}
 
 \begin{frame}[noframenumbering,plain]
 
 \begin{tikzpicture}[remember picture, overlay]
-        \fill[black] (current page.south west) rectangle ([xshift=2cm]current page.north west);
+        \fill[black] (current page.south west) rectangle ([xshift=4cm]current page.north west);
     \end{tikzpicture}
     \begingroup  
         \flushleft
-        {\fontfamily{qag}\selectfont\hspace{2 cm}\large\color{black}{The category Poly is a $\ox$-symmetric isomix LDC}} \vspace{1em}
+        {\fontfamily{qag}\selectfont\hspace{2 cm}\Large\bfseries\color{black}{Part I: The category Poly is a $\ox$-symmetric isomix LDC}} \vspace{1em}
          
     \endgroup
 \end{frame}
@@ -585,7 +580,7 @@ The tri product $\tri$ is non-symmetric.
 \begin{frame}{Duoidal categories}
 
    A \tcolor{duoidal category}\footnote{Marcelo Aguiar and Swapneel Arvind Mahajan. Monoidal functors, species and Hopf algebras (2010)} is a category $\X$ with two monoidal structures $(\X, \ox, \top)$ and $(\X, \oa, \bot)$ along with a natural transformation:
-    \[ {\duo: ~(a \oa b) \ox (c \oa d) \to (a \ox c) \oa (b \ox d)} \]
+    \[ {\duo: ~(A \oa B) \ox (C \oa D) \to (A \ox C) \oa (B \ox D)} \]
     called the \tcolor{interchange law}, and morphisms:
     \[ e_\top: ~\top \to \top \oa \top \quad \quad  e_\bot: ~\bot \otimes \bot \to \bot \]    
     such that the functors $\oa$ and $\bot$ are $\ox$-lax monoidal, and the assosciativity and unitor natural isomorphisms of $(\oa, \bot)$ are $\ox$-monoidal natural transformations.
@@ -597,7 +592,7 @@ The tri product $\tri$ is non-symmetric.
  
  In a duoidal category, we have a map $\tcolor{k: \top \to \bot}$
 
-\[ \top \to^{\cong}  \top \ox \top \to^{\cong}  (\top \oa \bot) \ox (\bot \oa \top) \to^{\duo} (\top \ox \bot) \oa (\top \ox \bot) \to^{\cong} \bot \oa \bot \to^{\cong} \bot \] 
+\[ \top \to^{\cong}  \top \ox \top \to^{\cong}  (\top \oa \bot) \ox (\bot \oa \top) \to^{\tcolor{\duo}} (\top \ox \bot) \oa (\top \ox \bot) \to^{\cong} \bot \oa \bot \to^{\cong} \bot \] 
 
 \vspace{0.5 em}
 
@@ -605,37 +600,48 @@ A duoidal category is \tcolor{normal} if the above composite is an isomorphism.
 
 \end{frame}
 
-\begin{frame}{Bilax duoidal functors}
+\begin{frame}{Bilax duoidal functor}
 
-Functors...
+\tcolor{Bilax duoidal functor} $F: (\X, \ox, \top, \tri, \bot) \to (\Y, \ox, \top, \tri, \bot)$ consists of a functor $F: \X \to \Y$ that is 
+
+$\ox$-lax monoidal and  $\tri$-colax monoidal satisfying,
+\[ \xymatrix{
+        F((a \tri b) \otimes (c \tri d)) \ar[d]_{F(\duo)} &F(a \tri b) \otimes F(c \tri d) \ar[r]^{\hspace{-20pt}n_\tri \otimes n_\tri} \ar[l]_{m_\otimes} & (F(a) \tri F(b)) \otimes (F(c) \tri F(d)) \ar[d]^{\duo} \\ 
+        F((a \otimes c) \tri (b \otimes d)) \ar[r]_{n_\tri} &F(a \otimes c) \tri F(b \otimes d) & (F(a) \otimes F(c)) \tri (F(b) \otimes F(d)) \ar[l]^{\hspace{-20pt}m_\otimes \tri m_\otimes} 
+    }
+ \]
+ and 3 more coherences (two for unit laxors the duoidal map and one for the unit laxors with the $k$ map.
 
 \end{frame}
 
 \begin{frame}{Normal duoidal is also isomix}
 
-\vspace{1em}
+{\bf normalDuo} category of normal duoidal categories and bilax duoidal functors
 
-\tcolor{Isomix} category of isomix LDCs and isomix functors
+\vspace{0.5em}
 
-\vspace{1em}
-
-\tcolor{normalDuo} category of normal duoidal categories and bilax duoidal functors
+{\bf Isomix} category of isomix LDCs and isomix functors
 
 \vspace{1em}
 
-{\bf Theorem:} There is a faithful functor from \tcolor{normalDuo} to \tcolor{Isomix}.
+\textcolor{teal}{Theorem:} There is a faithful functor from \tcolor{normalDuo} to \tcolor{Isomix}.
 
-\vspace{1em}
+\textcolor{teal}{Proof sketch:} Define the left distributor as follows:
+\[ 
+\begin{tikzcd}[ampersand replacement=\&]
+A \ox (B \oa C) \ar[r, "\color{magenta}\cong"] \& (A \oa I) \ox (B \oa C) \ar[r, "\color{magenta}\duo"] \& (A \ox B) \oa (I \ox C) \ar[r, "\color{magenta}\cong"] \& (A \ox B) \oa C 
+\end{tikzcd}
+\]
 
- The category $($Poly$, \otimes, \tri,  y )$ is normal duoidal hence an isomix LDC. Poly is  $\ox$-symmetric.
-    
-\vspace{1em}
+\vspace{0.75em}
+
+ \textcolor{teal}{Lemma}: The category \tcolor{$($Poly$, \otimes, \tri,  y )$ is normal duoidal} hence an isomix LDC. Additionally, Poly is $\ox$-symmetric. 
+     
+\vspace{0.5em}
 
 \color{violet}{\bf Attention:} \color{black} Since in this tutorial we will mostly be in a $\ox$-symmetric setting, we will \\ \tcolor{use $\tri$ instead of $\oa$}.    
     
 \end{frame}
-
-
 
 
 \begin{frame}[noframenumbering,plain]
@@ -644,16 +650,15 @@ Functors...
     \end{tikzpicture}
     \begingroup  
         \flushleft
-        {\fontfamily{qag}\selectfont\hspace{2 cm}\Large\bfseries\color{black}{Meet the linear duals}}\vspace{1em}\\
+        {\fontfamily{qag}\selectfont\hspace{2 cm}\Large\bfseries\color{black}{Part II: Meet the linear duals and biclosed LDCs}}\vspace{1em}\\
     \endgroup
 \end{frame}
 
 \begin{frame}{What is a linear dual?}
     
-    In an LDC, an object $A$ is left dual to $B$ if there exist:
+    In an LDC, an object \tcolor{$B$ is left dual to $A$} if there exist:
     \[ \eta: \top \to A \tri B ~~~~~~~~ \epsilon: B \ox A \to \bot \]
     such that: 
- 
      \[	\begin{tikzpicture}[scale=1.2]
     			\begin{pgfonlayer}{nodelayer}
     				\node [style=none] (6) at (1, 0) {};
@@ -702,25 +707,176 @@ Functors...
             \begin{tikzpicture}[scale=0.9]
     		  \draw (0,2.5) -- (0,0);
     		\end{tikzpicture} \]
-    		
-    \vspace{0.5em}
-    
+		
     A symmetric {\bf $*$-autonomous category} is an LDC in which every object has a chosen dual object.
         
 \end{frame}
 
 \begin{frame}{Biclosed LDCs}
+
+An LDC is:
+
+\tcolor{$\ox$-closed} if for all $A:\X$, the functor $ - \otimes A : \X \to \X$  has a right adjoint.
+	\[ \X(A \ox B, C) \cong \X(B, A \lollipop C) \quad \quad \color{teal}{\eval: A \ox (A \lollipop B) \to B} \]
+\tcolor{$\tri$-coclosed} if for all $A: \X$, the functor $ - \tri A: \X \to \X$ has a left adjoint.
+	\[ \X \left(A \slash C, B \right) \cong \X(A, B \tri C) \quad \quad \color{teal}{\coeval: A \to (A \slash B) \tri B} \]
+\tcolor{biclosed} if $\X$ is both $\ox$-closed and $\tri$-coclosed.
     
 \end{frame}
 
-\begin{frame}{Biclosed LDCs (cont...)}
+\begin{frame}{Poly is biclosed}
+    
+    The category \textcolor{magenta}{$\Poly$ is a biclosed isomix LDC} where, for any two polynomials $p, q$:
+    
+    \[ p \lollipop q := [p,q]  =  \prod_{P : p(1)} \sum_{\color{magenta} Q : q(1)} \prod_{d : q[Q]} \sum_{\color{magenta}d' : p[P]} y \]   
+    
+    \[ p \slash q := \coclose{q}{p}  = \sum_{P : p(1)} y^{ q \tri p[P]} = \sum_{P : p(1)} \prod_{\color{magenta} Q: q(1)} \prod_{d:q[Q]\to p[P]} y \] 
     
 \end{frame}
 
-\begin{frame}{Duals in Poly}
+\begin{frame}{Double closure maps (1)}
+
+For any object $A:\X$ in a biclosed isomix LDC, there is a sort of a ``double closure'' map:
+
+\[ \begin{tikzcd}[ampersand replacement=\&]
+  A \ar[r, "{\color{magenta}\coeval}"] \ar[rrr, bend right = 15pt, "\Phi_A"'] \& [10pt]  \left(\coclose{[A, y]}{y} \tri [A,y] \right) \ox A \ar[r, "\color{magenta}\partial^R"] \&   \coclose{[A, y]}{y} \tri ([A,y]) \ox A) \ar[r, "\color{magenta}\eval"] \& \coclose{[A,y]}{y} 
+\end{tikzcd} \]
+
+\textcolor{teal}{Theorem:} If $A$ is right dual to $[A,y]$ with 
+ \[ \epsilon = \eval: A \ox [A,y] \to y \]  
+ then $\Phi_A$ has a retraction $\chi_A$,
+ \[ \begin{tikzcd}[ampersand replacement=\&]
+ 	A \ar[r, "\Phi_A"] \ar[rr, bend right, equals] \& \coclose{[A,y]}{y} \ar[r, "\chi_A"] \& A
+ \end{tikzcd} \]  
+For the other direction, we need an extra condition: $ \coeval \then \partial^R \then \chi_A \then \eval = Id_{[A, y]}$.
+
+\end{frame}
+
+\begin{frame}{Double closure maps (2)}
+
+For any object $a:\X$ in a biclosed isomix LDC there is a sort of a ``double closure'' map:
+
+\[ \begin{tikzcd}[ampersand replacement=\&]
+  \left[ \coclose{A}{ y },  y  \right] \ar[r, "\color{magenta}\coeval"] \ar[rrr, bend right = 15pt, "\Psi_A"']
+\& \left[ \coclose{A}{ y },  y  \right] \ox \left( \coclose{A}{ y } \tri A \right) \ar[r, "\color{magenta}\partial^L"] 
+\& \left( \left[ \coclose{A}{ y },  y  \right] \ox \coclose{A}{ y } \right) \tri A \ar[r, "\color{magenta}\eval"] 
+\& A
+\end{tikzcd} \]
+
+\textcolor{teal}{Theorem:} If $A$ is left dual to $\coclose{A}{y}$ with
+ \[ \eta = \coeval: y \to \coclose{A}{y} \tri A \]  
+then $\Psi_A$ has a section $\Omega_a$:
+\[ \begin{tikzcd}[ampersand replacement=\&]  
+A \ar[ r, "\Omega_A"] \ar[rr, bend right, equals] \& \left[ \coclose{A}{y}, y \right] \ar[r, "\Psi_A"] \& A
+\end{tikzcd} 
+\]
+
+\end{frame}
+
+
+
+\begin{frame}{Double closure maps in Poly }
+
+%\[ [Ay, y] \cong y^A \quad \quad \quad \quad \quad \quad \quad [y^A, y] \cong Ay \] 
+
+%\vspace{1em}
+
+\textcolor{teal}{Theorem:} A polynomial \textcolor{magenta}{$p = y^A$} for $A: \text{Set}$ if and only if \tcolor{$\Phi_p$ is the identity}:
+\[ \id_p = \Phi_p : p \to \coclose{[p,y]}{y} \]
+\textcolor{teal}{Corollary:}  For any set $A$, \tcolor{$Ay$ is left dual to $y^A$} with $\eta = \coeval$ and $\epsilon = \eval$
+\[ \includegraphics[scale=0.08]{pics/dual2.jpeg}\]
+\textcolor{teal}{Theorem:} A polynomial \textcolor{magenta}{$q = Ay$} for $A: \text{Set}$ if and only if \tcolor{$\Psi_q$ is the identity}.
+\[ \id_q = \Psi_q : \left[ \coclose{q}{y}, y \right] \to q \]
+We get the same corollary again!
+
+\end{frame}
+
+
+\begin{frame}{What are the linear duals in Poly?}
+
+\textcolor{teal}{Theorem:} If a polynomial $p$ is left dual to $q$, then $p = Ay$ and $q = y^A$ for some $A : {\sf Set}$.  
+\[ \includegraphics[scale=0.08]{pics/dual3.jpeg}\]
+Thus, the only polynomials with duals are linear polynomials and representables!
+
+\vspace{1em}
+
+\textcolor{teal}{Theorem}: If $q \dual p$ and $p \dual q$, then $p = q = y$.
+
+\vspace{0.25em}
+
+Any polynomial which is both a left and a right dual of the same polynomial is trivial.
+
+\end{frame}
+
+\begin{frame}[noframenumbering,plain]
+\begin{tikzpicture}[remember picture, overlay]
+        \fill[black] (current page.south west) rectangle ([xshift=4cm]current page.north west);
+    \end{tikzpicture}
+    \begingroup  
+        \flushleft
+        {\fontfamily{qag}\selectfont\hspace{2 cm}\Large\bfseries\color{black}{Part III: The core of mix LDC}}\vspace{1em}\\
+    \endgroup
+\end{frame}
+
+\begin{frame}{The core of a mix LDC}
+    
+    The \textcolor{magenta}{core} of a mix LDC is the full subcategory determined by objects $A$ for which the natural transformation is also an isomorphism:
+    \[ \indep_{A,-}: A \ox - \to A\tri - \quad \quad \quad  \indep_{-, A}: - \ox A \to - \tri A  \]
+    
+     \vspace{0.25em}
+    
+    The core of a \tcolor{mix category} is closed to $\otimes$ and $\oplus$.
+    
+    \vspace{0.5em}
+    
+    The core of an \tcolor{isomix} LDC contains the monoidal units $\top$ and $\bot$.  
+    
+    \vspace{0.5em}
+    
+    The core of an isomix LDC is linearly equivalent to its underlying monoidal categories.
     
 \end{frame}
 
+\begin{frame}{The core of ($\ox$-symmetric) mix LDC}
+    For a { mix ($\ox$-symmetric) LDC} $(\X, \otimes, \top, \tri, \bot)$, 
+    
+    \tcolor{Left core:} Full subcategory of objects $A: \X$ such that 
+    \[ \color{magenta}{\indep_{A,-}: A \ox - \to A \tri -} \]
+    \tcolor{Right core:}  Full subcategory of objects $B:\X$ such that 
+    \[ \color{magenta}{\indep_{-, B}: - \ox B \to - \tri B} \]
+    \textcolor{teal}{Lemma:} For an isomix LDC, the unit object is both in the left and the right cores. 
+    
+    In an isomix LDC, the left and the right core are compact LDCs.    
+\end{frame}
+
+\begin{frame}{Opposing cores}
+
+    \tcolor{Opposing cores:} A mix LDC is said to have opposing cores if 
+    \[ \star: \rCore(\X)^{\op} \to^{\cong} \lCore(\X) \]   
+	 \textcolor{teal}{Examples:} Compact closed categories and Poly
+	 	   
+	 \vspace{0.75em}
+		     
+	    \textcolor{teal}{Lemma:} In Poly, a polynomial \tcolor{$p$ in the left core} if and only if $p \cong Ay$ for some $A:\Set$.
+		
+		\textcolor{teal}{Lemma:} In Poly, a polynomial \tcolor{$q$ in the right core} if and only if $q \cong y^B$ for some $B:\Set$.
+		\[ \includegraphics[scale=0.1]{pics/boxes1.jpeg} \]
+		
+\end{frame}
+
+\begin{frame}{Opposing cores of Poly }
+
+\textcolor{teal}{Corllary:} The category $\Poly$ has opposing cores. 
+
+
+\textcolor{teal}{Proof:} For any $A: \Set$,  \[ \left(y^A \right)^\star := Ay \]
+
+For any $A,B: \Set$, and map $\varphi: y^B \to y^A$,
+\[ \varphi^\star: Ay \to By ; \quad (\varphi^\star)_1 ~:=~ \varphi^\sharp \]
+
+\textcolor{teal}{Corollary:} In Poly, a polynomial \tcolor{$p$ is left dual to $q$} if and only if \tcolor{$p$ is from the left core} and \tcolor{$q$ is from the right core}.
+\[ \includegraphics[scale=0.08]{pics/boxes2.jpeg} \]
+\end{frame}
 
 \begin{frame}[noframenumbering,plain]
 \begin{tikzpicture}[remember picture, overlay]
@@ -728,24 +884,584 @@ Functors...
     \end{tikzpicture}
     \begingroup  
         \flushleft
-        {\fontfamily{qag}\selectfont\hspace{2 cm}\Large\bfseries\color{black}{Linear monoids and linear comonoids}}\vspace{1em}\\
-        \hspace{2 cm} Robin Cockett, and Robert Seely. {\em Linear bicategories} (1997) \\
+        {\fontfamily{qag}\selectfont\hspace{2 cm}\Large\bfseries\color{black}{Part IV: Linear monoids and linear comonoids}}\vspace{1em}\\
+        \hspace{2 cm} Robin Cockett, Jurgen Koslowski and Robert Seely. \\ 
+        \hspace{2.5 cm} {\em Introduction to Linear bicategories} (1999) \\
+        \hspace{2 cm} Priyaa Varshinee Srinivasan. (PhD Thesis) \\
+        \hspace{2.5 cm} {\em Dagger linear logic for categorical quantum mechanics} (2021) \\
+    \endgroup
+\end{frame}
+
+\begin{frame}{Linear monoids in LDCs}
+
+In an LDC, a \tcolor{linear monoid}, $A \linmonw B$, contains a:
+
+\vspace{0.5em} 
+
+- a $\ox$-monoid $(A, \mulmap{1.35}{white}: A \ox A \to A, ~\unitmap{1.35}{white}: \top \to A)$ 
+
+\vspace{0.5 em}
+
+ - cyclic duals, $A \dual B$ and $B \dual A$
+
+\vspace{0.5em}
+
+together producing a $\tri$-comonoid $(B, \comulmap{1.5}{white}: B \to B \tri B, \counitmap{1.5}{white}: B \to \bot)$
+\[ 	(i)~~~	
+		 \begin{tikzpicture}
+		\begin{pgfonlayer}{nodelayer}
+			\node [style=circle] (0) at (-2.75, 0.75) {};
+			\node [style=none] (1) at (-3.25, 1.25) {};
+			\node [style=none] (2) at (-2.75, 0.5) {};
+			\node [style=none] (3) at (-2.25, 1.25) {};
+			\node [style=none] (4) at (-1.5, 1.25) {};
+			\node [style=none] (5) at (-1.5, -0) {};
+			\node [style=none] (6) at (-3.25, 1.5) {};
+			\node [style=none] (7) at (-1, 1.5) {};
+			\node [style=none] (8) at (-1, -0) {};
+			\node [style=none] (9) at (-3.75, 0.5) {};
+			\node [style=none] (10) at (-3.75, 2.25) {};
+			\node [style=none] (11) at (-4, 2) {$B$};
+			\node [style=none] (12) at (-1.75, 0.25) {$B$};
+			\node [style=none] (13) at (-0.75, 0.25) {$B$};
+		\end{pgfonlayer}
+		\begin{pgfonlayer}{edgelayer}
+			\draw [in=150, out=-90, looseness=1.00] (1.center) to (0);
+			\draw [in=-90, out=30, looseness=1.00] (0) to (3.center);
+			\draw (0) to (2.center);
+			\draw [bend left=90, looseness=1.50] (2.center) to (9.center);
+			\draw (9.center) to (10.center);
+			\draw (6.center) to (1.center);
+			\draw [bend left=90, looseness=1.25] (6.center) to (7.center);
+			\draw (7.center) to (8.center);
+			\draw (4.center) to (5.center);
+			\draw [bend right=90, looseness=1.25] (4.center) to (3.center);
+		\end{pgfonlayer}
+	\end{tikzpicture} = \begin{tikzpicture}
+		\begin{pgfonlayer}{nodelayer}
+			\node [style=circle] (0) at (-2, 0.75) {};
+			\node [style=none] (1) at (-1.5, 1.25) {};
+			\node [style=none] (2) at (-2, 0.5) {};
+			\node [style=none] (3) at (-2.5, 1.25) {};
+			\node [style=none] (4) at (-3.25, 1.25) {};
+			\node [style=none] (5) at (-3.25, -0) {};
+			\node [style=none] (6) at (-1.5, 1.5) {};
+			\node [style=none] (7) at (-3.75, 1.5) {};
+			\node [style=none] (8) at (-3.75, -0) {};
+			\node [style=none] (9) at (-1, 0.5) {};
+			\node [style=none] (10) at (-1, 2.25) {};
+			\node [style=none] (11) at (-0.75, 2) {$B$};
+			\node [style=none] (12) at (-3, 0.25) {$B$};
+			\node [style=none] (13) at (-4, 0.25) {$B$};
+		\end{pgfonlayer}
+		\begin{pgfonlayer}{edgelayer}
+			\draw [in=30, out=-90, looseness=1.00] (1.center) to (0);
+			\draw [in=-90, out=150, looseness=1.00] (0) to (3.center);
+			\draw (0) to (2.center);
+			\draw [bend right=90, looseness=1.50] (2.center) to (9.center);
+			\draw (9.center) to (10.center);
+			\draw (6.center) to (1.center);
+			\draw [bend right=90, looseness=1.25] (6.center) to (7.center);
+			\draw (7.center) to (8.center);
+			\draw (4.center) to (5.center);
+			\draw [bend left=90, looseness=1.25] (4.center) to (3.center);
+		\end{pgfonlayer}
+	\end{tikzpicture} 
+	~~~~~~~~~~~~ 
+	(ii)~~~ 	
+	\begin{tikzpicture}
+		\begin{pgfonlayer}{nodelayer}
+			\node [style=circle] (0) at (-0.75, 1.5) {};
+			\node [style=none] (1) at (-0.75, 0.5) {};
+			\node [style=none] (2) at (-1.75, 0.5) {};
+			\node [style=none] (3) at (-1.75, 2.25) {};
+			\node [style=none] (4) at (-2, 2) {$B$};
+		\end{pgfonlayer}
+		\begin{pgfonlayer}{edgelayer}
+			\draw (0) to (1.center);
+			\draw [bend left=90, looseness=1.50] (1.center) to (2.center);
+			\draw (2.center) to (3.center);
+		\end{pgfonlayer}
+	\end{tikzpicture} = 
+	\begin{tikzpicture}
+		\begin{pgfonlayer}{nodelayer}
+			\node [style=circle] (0) at (-2, 1.5) {};
+			\node [style=none] (1) at (-2, 0.5) {};
+			\node [style=none] (2) at (-1, 0.5) {};
+			\node [style=none] (3) at (-1, 2.25) {};
+			\node [style=none] (4) at (-0.75, 2) {$B$};
+		\end{pgfonlayer}
+		\begin{pgfonlayer}{edgelayer}
+			\draw (0) to (1.center);
+			\draw [bend right=90, looseness=1.50] (1.center) to (2.center);
+			\draw (2.center) to (3.center);
+		\end{pgfonlayer}
+	\end{tikzpicture} 
+ \] 
+\end{frame}
+
+\begin{frame}{Left and right linear monoids in LDCs}
+
+In an LDC, a \tcolor{left linear monoid}, $A \linmonwl B$, contains a:
+
+- a $\ox$-monoid $(A, \mulmap{1.35}{white}: A \ox A \to A, ~\unitmap{1.35}{white}: \top \to A)$ on the left dual, and
+
+- a dual, $A \dual B$.
+  
+ The $\ox$-monoid structure on $A$ induces a $\tri$-comonoid structure on $B$ via the duality:
+ \[ \begin{tikzpicture}
+			\begin{pgfonlayer}{nodelayer}
+				\node [style=none] (12) at (1.75, 0.25) {$B$};
+				\node [style=none] (13) at (0.25, 0.25) {$B$};
+				\node [style=circle] (17) at (1, 1.25) {};
+				\node [style=none] (18) at (1, 2.5) {};
+				\node [style=none] (19) at (0.5, 0) {};
+				\node [style=none] (20) at (1.5, 0) {};
+				\node [style=none] (21) at (1.25, 2.25) {$B$};
+			\end{pgfonlayer}
+			\begin{pgfonlayer}{edgelayer}
+				\draw [in=-150, out=90, looseness=1.25] (19.center) to (17);
+				\draw [in=90, out=-30, looseness=1.25] (17) to (20.center);
+				\draw (17) to (18.center);
+			\end{pgfonlayer}
+		\end{tikzpicture} = \begin{tikzpicture}
+		\begin{pgfonlayer}{nodelayer}
+			\node [style=circle] (0) at (-2, 0.75) {};
+			\node [style=none] (1) at (-1.5, 1.25) {};
+			\node [style=none] (2) at (-2, 0.5) {};
+			\node [style=none] (3) at (-2.5, 1.25) {};
+			\node [style=none] (4) at (-3.25, 1.25) {};
+			\node [style=none] (5) at (-3.25, -0) {};
+			\node [style=none] (6) at (-1.5, 1.5) {};
+			\node [style=none] (7) at (-3.75, 1.5) {};
+			\node [style=none] (8) at (-3.75, -0) {};
+			\node [style=none] (9) at (-1, 0.5) {};
+			\node [style=none] (10) at (-1, 2.25) {};
+			\node [style=none] (11) at (-0.75, 2) {$B$};
+			\node [style=none] (12) at (-3, 0.25) {$B$};
+			\node [style=none] (13) at (-4, 0.25) {$B$};
+		\end{pgfonlayer}
+		\begin{pgfonlayer}{edgelayer}
+			\draw [in=30, out=-90, looseness=1.00] (1.center) to (0);
+			\draw [in=-90, out=150, looseness=1.00] (0) to (3.center);
+			\draw (0) to (2.center);
+			\draw [bend right=90, looseness=1.50] (2.center) to (9.center);
+			\draw (9.center) to (10.center);
+			\draw (6.center) to (1.center);
+			\draw [bend right=90, looseness=1.25] (6.center) to (7.center);
+			\draw (7.center) to (8.center);
+			\draw (4.center) to (5.center);
+			\draw [bend left=90, looseness=1.25] (4.center) to (3.center);
+		\end{pgfonlayer}
+	\end{tikzpicture} 
+ \quad \quad \quad \begin{tikzpicture}
+		\begin{pgfonlayer}{nodelayer}
+			\node [style=circle] (17) at (1, 0.25) {};
+			\node [style=none] (18) at (1, 2.5) {};
+			\node [style=none] (21) at (1.25, 2.25) {$a$};
+		\end{pgfonlayer}
+		\begin{pgfonlayer}{edgelayer}
+			\draw (17) to (18.center);
+		\end{pgfonlayer}
+	\end{tikzpicture} = 	
+	\begin{tikzpicture}
+		\begin{pgfonlayer}{nodelayer}
+			\node [style=circle] (0) at (-2, 1.5) {};
+			\node [style=none] (1) at (-2, 0.5) {};
+			\node [style=none] (2) at (-1, 0.5) {};
+			\node [style=none] (3) at (-1, 2.25) {};
+			\node [style=none] (4) at (-0.75, 2) {$B$};
+		\end{pgfonlayer}
+		\begin{pgfonlayer}{edgelayer}
+			\draw (0) to (1.center);
+			\draw [bend right=90, looseness=1.50] (1.center) to (2.center);
+			\draw (2.center) to (3.center);
+		\end{pgfonlayer}
+	\end{tikzpicture}  \]
+	
+In an LDC, a \tcolor{right linear monoid}, $A \linmonwr B$, contains a:
+
+- a $\ox$-monoid structure on the right dual $B$, and
+
+- a dual, $A \dual B$.
+
+ The $\ox$-monoid structure on $B$ induces a $\tri$-comonoid structure on $A$ via the duality.
+
+\end{frame}
+
+\begin{frame}{Left and right linear monoids in Poly}
+
+The functor $A\mapsto Ay$ is strong monoidal $(\Set,1,\times)\to(\Poly,y,\otimes)$
+
+The functor $A\mapsto y^A$ is strong monoidal $(\Set^\op,1,\times)\to(\Poly,y,\otimes)$.
+
+\vspace{0.5em}
+
+For any monoid $(M,*,u)$ in Set, $My \linmonwl y^M$ is a \tcolor{left linear monoid} because:
+
+- $(\coeval, \eval): My \dual y^M$,
+
+- The functor $M \mapsto My$ is (strong) monoidal preserves monoids. 
+
+\vspace{0.75em}
+
+For any set $A$, $My \linmonwr y^M$ is a \tcolor{right linear monoid} because:
+
+
+- $(\coeval, \eval): My \dual y^M$,
+
+- The functor $M \mapsto y^M$ is strong monoidal, hence preserves comonoids. Every set has a unique comonoid structure given by the diagonal map.
+
+\end{frame}
+
+\begin{frame}{Linear comonoids}
+
+In an LDC, a \tcolor{linear comonoid}, $A \lincomonw B$, contains a:
+
+\vspace{0.5em} 
+
+- a \underline{$\ox$-comonoid} $(A, \comulmap{1.35}{white}: A \to A \ox A, ~\counitmap{1.35}{white}: A \to \top)$ 
+
+\vspace{0.5 em}
+
+ - cyclic duals, $A \dual B$ and $B \dual A$
+
+\vspace{0.5em} 
+
+\[ {\it (i)}~~~ \begin{tikzpicture}
+		\begin{pgfonlayer}{nodelayer}
+			\node [style=circle] (0) at (1.7, 2.75) {};
+			\node [style=none] (1) at (1.2, 2) {};
+			\node [style=none] (2) at (2.2, 2) {};
+			\node [style=none] (3) at (1.7, 3.5) {};
+			\node [style=none] (5) at (0.7, 2) {};
+			\node [style=none] (6) at (-0.3, 2) {};
+			\node [style=none] (7) at (2.7, 3.5) {};
+			\node [style=none] (8) at (2.7, 1.25) {};
+			\node [style=none] (9) at (2.95, 1.75) {$B$};
+			\node [style=oa] (10) at (0.2, 3) {};
+			\node [style=none] (11) at (0.2, 3.75) {};
+			\node [style=none] (12) at (-0.25, 3.65) {$B \tri B$};
+		\end{pgfonlayer}
+		\begin{pgfonlayer}{edgelayer}
+			\draw [in=-165, out=90, looseness=1.25] (1.center) to (0);
+			\draw [in=90, out=-15, looseness=1.25] (0) to (2.center);
+			\draw (0) to (3.center);
+			\draw [bend left=90, looseness=1.75] (1.center) to (5.center);
+			\draw [bend right=90] (6.center) to (2.center);
+			\draw [bend right=90, looseness=1.25] (7.center) to (3.center);
+			\draw (7.center) to (8.center);
+			\draw [in=90, out=-45] (10) to (5.center);
+			\draw [in=90, out=-135, looseness=1.25] (10) to (6.center);
+			\draw (10) to (11.center);
+		\end{pgfonlayer}
+	\end{tikzpicture} = \begin{tikzpicture}
+			\begin{pgfonlayer}{nodelayer}
+				\node [style=circle] (0) at (0.75, 2.75) {};
+				\node [style=none] (1) at (1.25, 2) {};
+				\node [style=none] (2) at (0.25, 2) {};
+				\node [style=none] (3) at (0.75, 3.5) {};
+				\node [style=none] (5) at (1.75, 2) {};
+				\node [style=none] (6) at (2.75, 2) {};
+				\node [style=none] (7) at (-0.25, 3.5) {};
+				\node [style=none] (8) at (-0.25, 1.25) {};
+				\node [style=none] (9) at (-0.5, 1.75) {$B$};
+				\node [style=oa] (10) at (2.25, 3) {};
+				\node [style=none] (11) at (2.25, 3.75) {};
+				\node [style=none] (12) at (2.75, 3.65) {$B \tri B$};
+			\end{pgfonlayer}
+			\begin{pgfonlayer}{edgelayer}
+				\draw [in=-15, out=90, looseness=1.25] (1.center) to (0);
+				\draw [in=90, out=-165, looseness=1.25] (0) to (2.center);
+				\draw (0) to (3.center);
+				\draw [bend right=90, looseness=1.75] (1.center) to (5.center);
+				\draw [bend left=90] (6.center) to (2.center);
+				\draw [bend left=90, looseness=1.25] (7.center) to (3.center);
+				\draw (7.center) to (8.center);
+				\draw [in=90, out=-135] (10) to (5.center);
+				\draw [in=90, out=-45, looseness=1.25] (10) to (6.center);
+				\draw (10) to (11.center);
+			\end{pgfonlayer}
+		\end{tikzpicture}		
+	    ~~~~~~~~
+	    {\it (ii)} ~~~ 
+	    \begin{tikzpicture}
+	    	\begin{pgfonlayer}{nodelayer}
+	    		\node [style=none] (0) at (1.5, 3.5) {};
+	    		\node [style=none] (2) at (2.5, 3.5) {};
+	    		\node [style=none] (3) at (2.5, 1) {};
+	    		\node [style=none] (4) at (2.75, 1.75) {$B$};
+	    		\node [style=circle, scale=1.5] (5) at (0.75, 1.25) {};
+	    		\node [style=none] (6) at (0.75, 1.25) {$\bot$};
+	    		\node [style=none] (7) at (0.75, 4.25) {};
+	    		\node [style=circle] (8) at (0.75, 2) {};
+	    		\node [style=none] (9) at (1.5, 2.75) {};
+	    		\node [style=circle] (14) at (1.5, 2.75) {};
+	    	\end{pgfonlayer}
+	    	\begin{pgfonlayer}{edgelayer}
+	    		\draw [bend right=90, looseness=1.50] (2.center) to (0.center);
+	    		\draw (2.center) to (3.center);
+	    		\draw (5) to (7.center);
+	    		\draw [dotted, in=-90, out=0, looseness=1.25] (8) to (9.center);
+	    		\draw (0.center) to (14);
+	    	\end{pgfonlayer}
+	    \end{tikzpicture} = \begin{tikzpicture}
+	    	\begin{pgfonlayer}{nodelayer}
+	    		\node [style=none] (0) at (2, 3.5) {};
+	    		\node [style=none] (2) at (1, 3.5) {};
+	    		\node [style=none] (3) at (1, 1) {};
+	    		\node [style=none] (4) at (0.75, 1.75) {$B$};
+	    		\node [style=circle, scale=1.5] (5) at (2.75, 1.25) {};
+	    		\node [style=none] (6) at (2.75, 1.25) {$\bot$};
+	    		\node [style=none] (7) at (2.75, 4.25) {};
+	    		\node [style=circle] (8) at (2.75, 2) {};
+	    		\node [style=none] (9) at (2, 2.75) {};
+	    		\node [style=circle] (14) at (2, 2.75) {};
+	    	\end{pgfonlayer}
+	    	\begin{pgfonlayer}{edgelayer}
+	    		\draw [bend left=90, looseness=1.50] (2.center) to (0.center);
+	    		\draw (2.center) to (3.center);
+	    		\draw (5) to (7.center);
+	    		\draw [dotted, in=-90, out=180, looseness=1.25] (8) to (9.center);
+	    		\draw (0.center) to (14);
+	    	\end{pgfonlayer}
+	    \end{tikzpicture} \]
+	    
+	    We apply the same idea of left and right linear monoids to linear comonoids, and get similar examples in Poly.
+\end{frame}
+
+
+\begin{frame}{Left and right linear comonoids}
+
+In an LDC, a \tcolor{left linear comonoid}, $A \lincomonwl B$, contains a:
+
+- a \underline{$\ox$-comonoid} on the left dual $A$, and
+
+- a dual, $A \dual B$.
+
+ The $\ox$-comonoid on $A$ induces a $\tri$-monoid on $B$. 
+ 
+ In right linear comonoids, right duals carry the $\ox$-comonoid structure.
+ 
+\textcolor{teal}{Examples:}
+  
+In Poly, for any monoid $(M,*,u)$ in Set, $My \lincomonwr y^M$ is a \tcolor{right linear comonoid}.
+
+
+In Poly, for any set $A$, $Ay \lincomonwl y^A$ is a \tcolor{left linear comonoid}.
+
+\end{frame}
+
+
+\begin{frame}[noframenumbering,plain]
+
+\begin{tikzpicture}[remember picture, overlay]
+        \fill[black] (current page.south west) rectangle ([xshift=2cm]current page.north west);
+    \end{tikzpicture}
+    \begingroup  
+        \flushleft
+        {\fontfamily{qag}\selectfont\hspace{2 cm}\Large\bfseries\color{black}{Part V: Linear bialgebras}}\vspace{1em} \\
         \hspace{2 cm} Priyaa Varshinee Srinivasan. \\
         \hspace{2.5 cm} {\em Dagger linear logic for categorical quantum mechanics} (Thesis 2021) \\
     \endgroup
 \end{frame}
 
-\begin{frame}[noframenumbering,plain]
+\begin{frame}{Bialgebra in symmetric monoidal categories}
 
-\begin{tikzpicture}[remember picture, overlay]
-        \fill[black] (current page.south west) rectangle ([xshift=2cm]current page.north west);
-    \end{tikzpicture}
-    \begingroup  
-        \flushleft
-        {\fontfamily{qag}\selectfont\hspace{2 cm}\Large\bfseries\color{black}{Linear bialgebras}}\vspace{1em} \\
-        \hspace{2 cm} Robin Cockett, and Robert Seely. {\em Weakly distributive categories} (1997) \\
-    \endgroup
+In a symmetric monoidal category $(\X, \ox, I)$, a {\bf bialgebra} consists of a
+
+- a monoid $\monoid{A}$
+
+- a comonoid $\comonoidb{A}$
+
+satisfying the following rules:
+
+\[ \begin{tikzpicture}[yscale=-1]
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=circle] (0) at (0, 4) {};
+		\node [style=circle, fill=black] (1) at (0, 5) {};
+		\node [style=none] (2) at (-0.5, 3) {};
+		\node [style=none] (3) at (0.5, 3) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [bend right, looseness=1.25] (0) to (2.center);
+		\draw [bend left, looseness=1.25] (0) to (3.center);
+		\draw (1) to (0);
+	\end{pgfonlayer}
+\end{tikzpicture} = \begin{tikzpicture}[yscale=-1]
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=circle, fill=black] (1) at (0, 5) {};
+		\node [style=none] (3) at (0, 3) {};
+		\node [style=circle, fill=black] (4) at (0.75, 5) {};
+		\node [style=none] (5) at (0.75, 3) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (3.center) to (1);
+		\draw (5.center) to (4);
+	\end{pgfonlayer}
+\end{tikzpicture} \quad \quad \quad \quad \begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=circle, fill=black] (0) at (0, 4) {};
+		\node [style=circle] (1) at (0, 5) {};
+		\node [style=none] (2) at (-0.5, 3) {};
+		\node [style=none] (3) at (0.5, 3) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [bend right, looseness=1.25] (0) to (2.center);
+		\draw [bend left, looseness=1.25] (0) to (3.center);
+		\draw (1) to (0);
+	\end{pgfonlayer}
+\end{tikzpicture} = \begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=circle] (1) at (0, 5) {};
+		\node [style=none] (3) at (0, 3) {};
+		\node [style=circle] (4) at (0.75, 5) {};
+		\node [style=none] (5) at (0.75, 3) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (3.center) to (1);
+		\draw (5.center) to (4);
+	\end{pgfonlayer}
+\end{tikzpicture} \quad \quad \quad \quad \begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=circle] (1) at (0, 5) {};
+		\node [style=circle, fill=black] (2) at (0, 3) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (1) to (2);
+	\end{pgfonlayer}
+\end{tikzpicture} = \id_I  \quad \quad \quad \quad \begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=circle, fill=black] (0) at (0, 5.25) {};
+		\node [style=circle, fill=black] (1) at (1.25, 5.25) {};
+		\node [style=circle] (2) at (0, 3.75) {};
+		\node [style=circle] (3) at (1.25, 3.75) {};
+		\node [style=none] (4) at (0, 3) {};
+		\node [style=none] (5) at (1.25, 3) {};
+		\node [style=none] (6) at (0, 6) {};
+		\node [style=none] (7) at (1.25, 6) {};
+		\node [style=none] (8) at (1.25, 3) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (1) to (2);
+		\draw (0) to (3);
+		\draw [bend right=45] (0) to (2);
+		\draw [bend left=45] (1) to (3);
+		\draw (3) to (8.center);
+		\draw (2) to (4.center);
+		\draw (6.center) to (0);
+		\draw (7.center) to (1);
+	\end{pgfonlayer}
+\end{tikzpicture} = \begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (4) at (0, 3) {};
+		\node [style=none] (6) at (0, 6) {};
+		\node [style=none] (7) at (1.5, 6) {};
+		\node [style=none] (8) at (1.5, 3) {};
+		\node [style=circle, fill=black] (9) at (0.75, 4) {};
+		\node [style=circle] (10) at (0.75, 5.25) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [in=90, out=-165] (9) to (4.center);
+		\draw [in=90, out=-15] (9) to (8.center);
+		\draw (9) to (10);
+		\draw [in=255, out=15] (10) to (7.center);
+		\draw [in=285, out=165] (10) to (6.center);
+	\end{pgfonlayer}
+\end{tikzpicture} \]  
+
 \end{frame}
 
+\begin{frame}{Linear bialgebra in symmetric LDC}
+
+	In a symmetric LDC, a \tcolor{linear bialgebra} consists of:
+	
+		- a linear monoid, $A \linmonw B$, and
+		
+		- a linear comonoid, $A \lincomonb B$,
+
+	such that:
+	
+		- $\bialg{A}$ is a $\ox$-bialgebra, and 
+		
+		- $\bialgb{B}$ is a $\tri$-bialgebra. 
+		
+	\vspace{1em}
+		
+	We can get linear bialgebras in half symmetric case too! 
+	
+	\vspace{0.5em}
+	
+	We apply the same left-right trick again! You get the idea!
+
+\end{frame}
+
+\begin{frame}{{Left and right} linear bialgebras in $\ox$-symmetric LDC}
+
+	In a \tcolor{$\ox$-}symmetric LDC, a \tcolor{left linear bialgebra} consists of:
+	
+		- a \tcolor{left} linear monoid, $A \linmonwl B$, and
+		
+		- a \tcolor{left} linear comonoid, $A \lincomonwl B$ \quad (denoted below by $\bullet$),
+
+	such that $\bialg{A}$ is a $\ox$-bialgebra. 
+		
+	\vspace{1em}				
+
+	In a \tcolor{$\ox$-}symmetric LDC, a \tcolor{right linear bialgebra} consists of:
+	
+		- a \tcolor{right} linear monoid, $A \linmonwr B$, and
+		
+		- a \tcolor{right} linear comonoid, $A \lincomonwr B$ \quad (denoted below by $\bullet$),
+
+	such that $\bialg{B}$ is a $\ox$-bialgebra. 
+	
+\end{frame}
+
+\begin{frame}{Left and right linear bialgebras in Poly}
+
+\vspace{0.5em}
+
+\textcolor{teal}{Lemma:} If $(M, *, e)$ is a monoid in $\Set$ then the dual \tcolor{$(\coeval, \eval): My \dual y^M$} in Poly carries all four structures:
+
+\begin{center}
+\begin{tabular}{  c|c } 
+ left linear monoid & left linear comonoid \\ 
+ $My \linmonwl y^M$ & $My \lincomonwl y^M$ \\
+ \hline
+ &  \\
+ right linear  monoid &  right linear comonoid \\ 
+  $My \linmonwr y^M$ & $My \lincomonwr y^M$ \\
+
+\end{tabular}
+\end{center}
+
+Moreover, we get a \tcolor{left linear bialgebra} (1st row) and a \tcolor{right linear bialgebra} (2nd row).
+
+\vspace{0.5em}
+
+\textcolor{teal}{Corollary:} In Poly, we have that $My \dual y^M$ is both a left and right linear bialgebra if and only if $M$ is a monoid in Set.
+
+\end{frame}
+
+\begin{frame}{Summary}
+
+- All normal duoidal categories are isomix LDCs.
+
+- (Poly, $\ox$, $\tri$, y) is an $\ox$-symmetric isomix LDC.  
+
+- In Poly, for any set $A$, $Ay$ is left dual to $y^A$.
+
+- In Poly, the only objects with duals are linear polynomials and represenatables.
+
+- Poly has left- and right- linear- monoids, comonoids, and bialgebras.
+
+\vspace{1em}
+
+\tcolor{A bugging question:}
+
+What is the connection between the cores and the biclosure property? Is there one?
+
+\end{frame}
 
 \end{document}

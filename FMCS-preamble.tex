@@ -35,6 +35,10 @@
 }{\triangleleft
 }
 
+\newcommand{\btri
+}{\blacktriangleleft
+}
+
 
 \newcommand{\funfact}[1]{\noindent\fbox{\begin{minipage}{\textwidth}
 #1
@@ -304,7 +308,7 @@ text centered, minimum height=3em, anchor=center}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\tikzcdset{every label/.append style = {font = \Large}}
+\tikzcdset{every label/.append style = {font = \Huge}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -320,6 +324,8 @@ text centered, minimum height=3em, anchor=center}}
 \newcommand{\lincomonw} {\xymatrixcolsep{4mm} \xymatrix{ \ar@{-||}[r]_{\circ} & }}
 \newcommand{\lincomonwr} {\xymatrixcolsep{4mm} \xymatrix{ \ar@{-||}[r]_{\tri\;\otimes} & }}
 \newcommand{\lincomonwl} {\xymatrixcolsep{4mm} \xymatrix{ \ar@{-||}[r]_{\otimes\;\tri} & }}
+\newcommand{\lincomonbr} {\xymatrixcolsep{4mm} \xymatrix{ \ar@{-||}[r]_{\btri\;\otimes} & }}
+\newcommand{\lincomonbl} {\xymatrixcolsep{4mm} \xymatrix{ \ar@{-||}[r]_{\otimes\;\btri} & }}
 
 \newcommand{\linbialgw} {\xymatrixcolsep{4mm} \xymatrix{ \ar@{-||}[r]^{\circ}_{\circ} & }}
 \newcommand{\linbialgwl} {\xymatrixcolsep{4mm} \xymatrix{ \ar@{-||}[r]^{\otimes\;\tri}_{\otimes\;\tri} & }}
@@ -327,9 +333,9 @@ text centered, minimum height=3em, anchor=center}}
 \newcommand{\linbialgwb} {\xymatrixcolsep{4mm} \xymatrix{ \ar@{-||}[r]^{\circ}_{\bullet} & }}
 
 
-\newcommand{\monoid}[1]{(#1, \mulmap{1.5}{white}: #1 \ox #1 \to #1, \unitmap{1.5}{white}: \yon \to #1)}
-\newcommand{\comonoid}[1]{(#1, \comulmap{1.5}{white}: #1 \to #1 \ox #1, \counitmap{1.5}{white}: #1 \to \yon)}
-\newcommand{\comonoidb}[1]{(#1, \comulmap{1.5}{black}: #1 \to #1 \ox #1, \counitmap{1.5}{black}: #1 \to \yon)}
+\newcommand{\monoid}[1]{(#1, \mulmap{1.5}{white}, \unitmap{1.5}{white})}
+\newcommand{\comonoid}[1]{(#1, \comulmap{1.5}{white}: #1 \to #1 \ox #1, \counitmap{1.5}{white}: #1 \to I)}
+\newcommand{\comonoidb}[1]{(#1, \comulmap{1.5}{black}, \counitmap{1.5}{black})}
 \newcommand{\Frob}[1]{(#1, \mulmap{1.5}{white}, \unitmap{1.5}{white}, \comulmap{1.5}{white}, \counitmap{1.5}{white})}
 \newcommand{\bFrob}[1]{(#1, \mulmap{1.5}{black}, \unitmap{1.5}{black}, \comulmap{1.5}{black}, \counitmap{1.5}{black})}
 \newcommand{\bialg}[1]{(#1, \mulmap{1.5}{white}, \unitmap{1.5}{white}, \comulmap{1.5}{black}, \counitmap{1.5}{black})}
