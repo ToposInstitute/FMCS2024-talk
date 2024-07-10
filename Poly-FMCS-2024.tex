@@ -228,7 +228,7 @@ A \tcolor{$\ox$-symmetric LDC} is an LDC in which only the $\ox$ product is symm
 
 \end{frame}
 
-\begin{frame}{Specturm of LDCs}
+\begin{frame}{Spectrum of LDCs}
 
         \vspace{0.5em}
     
@@ -335,7 +335,7 @@ The \tcolor{indep}\footnote{Also referred to as the mixor} must be natural in $A
 
 \end{frame}
 
-\begin{frame}[noframenumbering]{Mix LDCs (cont...)}
+\begin{frame}[noframenumbering]{Spectrum of LDCs}
 
 \[
     \begin{tikzpicture}[scale=2]
@@ -528,7 +528,7 @@ We will also {discover new properties} of LDCs by studying Poly.
 
 \vspace{1em}
 
-A {\bf polynomial functor} is a functor that is isomorphic to a coproduct of representables
+A {\bf polynomial functor} is a functor that is isomorphic to a coproduct of representables.
 
  \[ p \cong \sum_{P : p(1)} y^{p[P]} : {\sf Set \to Set} \] 
 
@@ -542,7 +542,7 @@ A schematic of a polynomial functor map, $\varphi: (y^3 + y^2) \to (y + y^2)$.
 
 The tensor product $\ox$ is given by the Day convolution of Cartesian product $\times$ in $\Set$.  
 
-\[ p \ox q = \sum_{P: p(1)} y^{p[P]} \ox \sum_{Q: q(1)} y^{q[Q]} := \sum_{\tcolor{(P,Q): p(1) \times q(1)}} y^{\tcolor{p[P] \times q[Q]}} \] 
+\[ p \ox q = \sum_{P: p(1)} y^{p[P]} \ox \sum_{Q: q(1)} y^{q[Q]} := \sum_{\textcolor{purple}{(P,Q): p(1) \times q(1)}} y^{\textcolor{purple}{p[P] \times q[Q]}} \] 
 
 Tensor product is symmetric.
 
@@ -656,7 +656,7 @@ A \ox (B \oa C) \ar[r, "\color{magenta}\cong"] \& (A \oa I) \ox (B \oa C) \ar[r,
 
 \begin{frame}{What is a linear dual?}
     
-    In an LDC, an object \tcolor{$B$ is left dual to $A$} if there exist:
+    In an LDC, an object {\bf $B$ is left dual to $A$} if there exist\footnote{Robin Cockett, Jurgen Koslowski and Robert Seely. Introduction to Linear bicategories (1999)}:
     \[ \eta: \top \to A \tri B ~~~~~~~~ \epsilon: B \ox A \to \bot \]
     such that: 
      \[	\begin{tikzpicture}[scale=1.2]
@@ -820,16 +820,16 @@ Any polynomial which is both a left and a right dual of the same polynomial is t
 
 \begin{frame}{The core of a mix LDC}
     
-    The \textcolor{magenta}{core} of a mix LDC is the full subcategory determined by objects $A$ for which the natural transformation is also an isomorphism:
+    The {\bf core}\footnote{Richard Blute, Robin Cockett, Robert Seely, "Feedback for linearly dis- tributive categories: traces and fixpoints" (2000)} of a mix LDC is the full subcategory determined by objects $A$ for which the natural transformation is also an isomorphism:
     \[ \indep_{A,-}: A \ox - \to A\tri - \quad \quad \quad  \indep_{-, A}: - \ox A \to - \tri A  \]
     
      \vspace{0.25em}
     
-    The core of a \tcolor{mix category} is closed to $\otimes$ and $\oplus$.
+    The core of a \textcolor{purple}{mix category} is closed to $\otimes$ and $\oplus$.
     
     \vspace{0.5em}
     
-    The core of an \tcolor{isomix} LDC contains the monoidal units $\top$ and $\bot$.  
+    The core of an \textcolor{purple}{isomix} LDC contains the monoidal units $\top$ and $\bot$.  
     
     \vspace{0.5em}
     
@@ -837,7 +837,7 @@ Any polynomial which is both a left and a right dual of the same polynomial is t
     
 \end{frame}
 
-\begin{frame}{The core of ($\ox$-symmetric) mix LDC}
+\begin{frame}{Left and right core of mix LDCs}
     For a { mix ($\ox$-symmetric) LDC} $(\X, \otimes, \top, \tri, \bot)$, 
     
     \tcolor{Left core:} Full subcategory of objects $A: \X$ such that 
@@ -894,7 +894,7 @@ For any $A,B: \Set$, and map $\varphi: y^B \to y^A$,
 
 \begin{frame}{Linear monoids in LDCs}
 
-In an LDC, a \tcolor{linear monoid}, $A \linmonw B$, contains a:
+In an LDC, a {\bf linear monoid}\footnote{Robin Cockett, Jurgen Koslowski and Robert Seely.{Introduction to Linear bicategories} (1999)}, $A \linmonw B$, contains a:
 
 \vspace{0.5em} 
 
@@ -1116,7 +1116,7 @@ For any set $A$, $My \linmonwr y^M$ is a \tcolor{right linear monoid} because:
 
 \begin{frame}{Linear comonoids}
 
-In an LDC, a \tcolor{linear comonoid}, $A \lincomonw B$, contains a:
+In an LDC, a {\bf linear comonoid}\footnote{Priyaa Varshinee Srinivasan. (PhD Thesis) { Dagger linear logic for categorical quantum mechanics} (2021)} $A \lincomonw B$, contains a:
 
 \vspace{0.5em} 
 
@@ -1228,6 +1228,9 @@ In an LDC, a \tcolor{linear comonoid}, $A \lincomonw B$, contains a:
 	    \end{tikzpicture} \]
 	    
 	    We apply the same idea of left and right linear monoids to linear comonoids, and get similar examples in Poly.
+	    
+	    \vspace{0.5em}
+	    
 \end{frame}
 
 
@@ -1374,7 +1377,7 @@ satisfying the following rules:
 
 \begin{frame}{Linear bialgebra in symmetric LDC}
 
-	In a symmetric LDC, a \tcolor{linear bialgebra} consists of:
+	In a symmetric LDC, a {\bf linear bialgebra}\footnote{Priyaa Varshinee Srinivasan. (PhD Thesis) { Dagger linear logic for categorical quantum mechanics} (2021)} consists of:
 	
 		- a linear monoid, $A \linmonw B$, and
 		
@@ -1393,6 +1396,8 @@ satisfying the following rules:
 	\vspace{0.5em}
 	
 	We apply the same left-right trick again! You get the idea!
+	
+	\vspace{0.5em}
 
 \end{frame}
 
